@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>greencode challenge</title>
+<meta name="viewport" conntent="width=device-width">
+<link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+
+<div class ="container">
+
+<div class="slides fade">
+<div class="number">1 / 4</div>
+<div><img src="pictures/a.jpg"></div>
+<div class="text">caption 1</div>
+</div>
+
+<div class="slides">
+<div class="number">2 / 4</div>
+<div><img src="pictures/b.jpg"></div>
+<div class="text">caption 2</div>
+</div>
+
+<div class="slides">
+<div class="number">3 / 4</div>
+<div><img src="pictures/c.jpg"></div>
+<div class="text">caption 3</div>
+</div>
+
+<div class="slides">
+<div class="number">4 / 4</div>
+<div><img src="pictures/d.jpg"></div>
+<div class="text">caption 4</div>
+</div>
+
+<a class="prev" onclick="plusIndex(-1)">&#10094;</a>
+<a class="next" onclick="plusIndex(+1)">&#10095;</a>
+</div>
+
+<br/>
+<div style="text-align:center">
+<span class="dots" onclick="currentSlide(1)"></span>
+<span class="dots" onclick="currentSlide(2)"></span>
+<span class="dots" onclick="currentSlide(3)"></span>
+<span class="dots" onclick="currentSlide(4)"></span>
+
+
+</div>
+
+<script type="text/javascript">
+
+var slideIndex = 1;
+showImage(slideIndex);
+function plusIndex(n){
+	showImage(slideIndex += n);
+}
+
+function currentSlide(n){
+	showImage(slideIndex = n);
+}
+function showImage(n){
+	var slide = document.getElementsByClassName("slides");
+	var dots = document.getElementsByClassName("dots");
+	if(n > slide.length) {slideIndex = 1};
+	if(n < 1) {slideIndex = slide.length};
+	for(var i = 0; i < slide.length; i++){
+		slide[i].style.display = "none";
+	};
+	slide[slideIndex-1].style.display = "block";
+	for(var i = 0; i < dots.length; i++){
+	dots[i].className = dots[i].className.replace(" active","");
+	};
+	dots[slideIndex-1].className +="  active";
+	}
+</script>
+</body>
+	</html>
